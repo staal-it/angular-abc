@@ -28,6 +28,10 @@
 		$scope.name = 'Darth';
 	})
 	.controller('ThirdController', function($scope){
+		$scope.$watchGroup(['person.name', 'person.title'], function (){
+			console.log('Name or title changed');
+		});
+		
 		$scope.$watchCollection('person', function(newValue, oldValue){
 			console.log('Person changed from ', oldValue , newValue);
 		}) 
