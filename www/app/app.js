@@ -38,6 +38,28 @@
 		this.makeUppercase = function (s){
 			return s.toUpperCase();
 		}
+		
+		this.makeLowercase = function (s){
+			return s.toLowerCase();
+		}
+	})
+	
+	.factory('handyStringUtilsFactory' , function(){
+		return {
+			makeUppercase: function (s){
+				return s.toUpperCase();
+			},
+			
+			makeLowercase: function (s){
+				return s.toLowerCase();
+			}
+		};
+	})
+	
+	.factory('makeUppercase', function(){
+		return function (s) {
+			return s.toUpperCase();
+		}
 	})
 	
 	.controller('MainController', function($scope){
@@ -49,12 +71,15 @@
 	.controller('SecondController', function($scope){
 		$scope.name = 'Darth';
 	})
-	.controller('ServiceExamplesController', function(objectData, handyStringUtilsService){
+	.controller('ServiceExamplesController', 
+		function(objectData, handyStringUtilsService, makeUppercase){
 		var vm = this;
 		
 		vm.obj = objectData;
 		
 		console.log('Uppercase: ' + handyStringUtilsService.makeUppercase('test string'));
+		
+		console.log('Uppercase with fac: ' + makeUppercase('test string'));
 	})
 	.controller('WatchController', function($scope){
 		var vm = this;
