@@ -12,8 +12,8 @@
 </div>
 
 <hr />
-<div ng-controller="ThirdController">
-	Name: <input ng-model="person.name"> {{ person.name }}
-	Title: <input ng-model="person.title"> {{ person.title }}
-	street: <input ng-model="person.address.street"> {{ person.address.street }}
+<div ng-controller="ThirdController as vm">
+	Name: <input ng-model="vm.person.name"> {{ vm.person.name }}
+	Title: <input ng-model="vm.person.title"> {{ vm.person.title }}
+	street: <input ng-model="vm.person.address.street"> {{ vm.person.address.street }}
 </div>

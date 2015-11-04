@@ -28,6 +28,15 @@
 		$scope.name = 'Darth';
 	})
 	.controller('ThirdController', function($scope){
+		var vm = this;
+		
+		$scope.$watch(
+			function() { return vm.person.name; }, 
+			function(newValue, oldValue){
+			console.log('Name is now ', vm.person.name);
+		})
+		/*
+		
 		$scope.$watchGroup(['person.name', 'person.title'], function (){
 			console.log('Name or title changed');
 		});
@@ -35,6 +44,7 @@
 		$scope.$watchCollection('person', function(newValue, oldValue){
 			console.log('Person changed from ', oldValue , newValue);
 		}) 
+		*/
 	})
 	;
 })()
