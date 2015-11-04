@@ -1,1 +1,1 @@
-Demo gemaakt tijden Angular Bootcamp!
+Demo gemaakt tijdens Angular Bootcamp!
