@@ -28,9 +28,9 @@
 		$scope.name = 'Darth';
 	})
 	.controller('ThirdController', function($scope){
-		$scope.$watch('person', function(newValue, oldValue){
+		$scope.$watchCollection('person', function(newValue, oldValue){
 			console.log('Person changed from ', oldValue , newValue);
-		}, true) // true for deep watch
+		}) 
 	})
 	;
 })()
