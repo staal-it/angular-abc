@@ -22,7 +22,7 @@
 		$scope.stuff = 'working!';
 	})
 	.controller('FirstController', function($scope){
-		$scope.name = 'Darth';
+		//$scope.name = 'Darth';
 	})
 	;
 })()

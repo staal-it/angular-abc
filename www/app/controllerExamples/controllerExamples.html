@@ -1,9 +1,11 @@
 <h2>Controller Examples</h2>
 
-<div ng-controller="FirstController">
+<div ng-controller="FirstController" 
+	style="border: 3px solid red; padding: 10px">
+	Name: <input ng-model="name">
+	<div ng-controller="FirstController"
+ 	style="border: 3px solid green; padding: 10px">
 	Name: <input ng-model="name">
 </div>
-<hr />
-<div ng-controller="FirstController">
-	Name: {{ name }}
 </div>
+<hr />
