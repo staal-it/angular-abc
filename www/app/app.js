@@ -4,6 +4,10 @@
 	
 	angular.module('sandbox', ['ngRoute'])
 	
+	.value('objectData', {
+		count: '17'
+	})
+	
 	.config(function($routeProvider){
 		$routeProvider
 		.when('/', {
@@ -14,6 +18,11 @@
 		})
 		.when('/watchExamples', {
 			templateUrl: 'app/watchExamples/watchExamples.html'
+		})
+		.when('/serviceExamples', {
+			templateUrl: 'app/serviceExamples/serviceExamples.html',
+			controller: 'ServiceExamplesController',
+			controllerAs: 'vm'
 		})
 		.otherwise({
 			redirectTo: '/'
@@ -29,6 +38,11 @@
 	})
 	.controller('SecondController', function($scope){
 		$scope.name = 'Darth';
+	})
+	.controller('ServiceExamplesController', function(objectData){
+		var vm = this;
+		
+		vm.obj = objectData;
 	})
 	.controller('WatchController', function($scope){
 		var vm = this;
