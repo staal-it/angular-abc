@@ -4,6 +4,10 @@
 	
 	angular.module('sandbox', ['ngRoute'])
 	
+	.constant('API_CONFIG', {
+		API_URL: 'http://google.nl'
+	})
+	
 	.value('objectData', {
 		count: '17'
 	})
@@ -30,6 +34,12 @@
 		;
 	})
 	
+	.service('handyStringUtilsService', function () {
+		this.makeUppercase = function (s){
+			return s.toUpperCase();
+		}
+	})
+	
 	.controller('MainController', function($scope){
 		$scope.stuff = 'working!';
 	})
@@ -39,10 +49,12 @@
 	.controller('SecondController', function($scope){
 		$scope.name = 'Darth';
 	})
-	.controller('ServiceExamplesController', function(objectData){
+	.controller('ServiceExamplesController', function(objectData, handyStringUtilsService){
 		var vm = this;
 		
 		vm.obj = objectData;
+		
+		console.log('Uppercase: ' + handyStringUtilsService.makeUppercase('test string'));
 	})
 	.controller('WatchController', function($scope){
 		var vm = this;
