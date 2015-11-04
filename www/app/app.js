@@ -22,7 +22,15 @@
 		$scope.stuff = 'working!';
 	})
 	.controller('FirstController', function($scope){
-		//$scope.name = 'Darth';
+		$scope.name = 'Darth';
+	})
+	.controller('SecondController', function($scope){
+		$scope.name = 'Darth';
+	})
+	.controller('ThirdController', function($scope){
+		$scope.$watch('person.name', function(newValue, oldValue){
+			console.log('Name changed from ' + oldValue + ' to ' + newValue);
+		})
 	})
 	;
 })()

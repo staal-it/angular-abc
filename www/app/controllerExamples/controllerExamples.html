@@ -3,9 +3,15 @@
 <div ng-controller="FirstController" 
 	style="border: 3px solid red; padding: 10px">
 	Name: <input ng-model="name">
-	<div ng-controller="FirstController"
+	
+</div>
+<hr />
+<div ng-controller="SecondController"
  	style="border: 3px solid green; padding: 10px">
 	Name: <input ng-model="name">
 </div>
-</div>
+
 <hr />
+<div ng-controller="ThirdController">
+	Name: <input ng-model="person.name"> {{ person.name }}
+</div>
