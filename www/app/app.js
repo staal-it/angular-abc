@@ -50,6 +50,16 @@
 		}
 	})
 	
+	.service('postalCodes', function ($http) {
+		var self = this;
+		
+		self.getPlaceDetails = function (postalCode) {
+			return $http.get('http://api.zippopotam.us/NL/' + postalCode).then(function (response){
+				return response.data;
+			})				
+		}
+	})
+	
 	.factory('handyStringUtilsFactory' , function(){
 		return {
 			makeUppercase: function (s){
@@ -84,7 +94,12 @@
 		$scope.name = 'Darth';
 	})
 	.controller('ServiceExamplesController', 
-		function(objectData, handyStringUtilsService, makeUppercase, randomNumberService, getRandomNumber){
+		function(objectData, 
+		handyStringUtilsService, 
+		makeUppercase, 
+		randomNumberService, 
+		getRandomNumber,
+		postalCodes){
 		var vm = this;
 		
 		vm.obj = objectData;
@@ -96,6 +111,10 @@
 		console.log('Random number: ' + randomNumberService.getRandomNumber());
 		
 		console.log('Random number from factory: ' + getRandomNumber());
+		
+		postalCodes.getPlaceDetails('9422').then(function(data){
+				console.log(data.places);
+			});
 	})
 	
 	.controller('WatchController', function($scope){
