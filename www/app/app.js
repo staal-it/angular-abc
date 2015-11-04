@@ -12,6 +12,9 @@
 		.when('/controllerExamples', {
 			templateUrl: 'app/controllerExamples/controllerExamples.html'
 		})
+		.when('/watchExamples', {
+			templateUrl: 'app/watchExamples/watchExamples.html'
+		})
 		.otherwise({
 			redirectTo: '/'
 		})
@@ -27,7 +30,7 @@
 	.controller('SecondController', function($scope){
 		$scope.name = 'Darth';
 	})
-	.controller('ThirdController', function($scope){
+	.controller('WatchController', function($scope){
 		var vm = this;
 		
 		$scope.$watch(
