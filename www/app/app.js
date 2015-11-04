@@ -44,6 +44,12 @@
 		}
 	})
 	
+	.service('randomNumberService', function (){
+		this.getRandomNumber = function(){
+			return Math.floor(Math.random() * 100) + 1;
+		}
+	})
+	
 	.factory('handyStringUtilsFactory' , function(){
 		return {
 			makeUppercase: function (s){
@@ -53,6 +59,12 @@
 			makeLowercase: function (s){
 				return s.toLowerCase();
 			}
+		};
+	})
+	
+	.factory('getRandomNumber', function (){
+		return function () {
+			return Math.floor(Math.random() * 100) + 1;
 		};
 	})
 	
@@ -72,7 +84,7 @@
 		$scope.name = 'Darth';
 	})
 	.controller('ServiceExamplesController', 
-		function(objectData, handyStringUtilsService, makeUppercase){
+		function(objectData, handyStringUtilsService, makeUppercase, randomNumberService, getRandomNumber){
 		var vm = this;
 		
 		vm.obj = objectData;
@@ -80,7 +92,12 @@
 		console.log('Uppercase: ' + handyStringUtilsService.makeUppercase('test string'));
 		
 		console.log('Uppercase with fac: ' + makeUppercase('test string'));
+		
+		console.log('Random number: ' + randomNumberService.getRandomNumber());
+		
+		console.log('Random number from factory: ' + getRandomNumber());
 	})
+	
 	.controller('WatchController', function($scope){
 		var vm = this;
 		
