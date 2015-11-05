@@ -59,15 +59,17 @@
 		});
 		*/
 		
-		$timeout(function(){}, 3000).then(function(){
+		var tp = $timeout(function(){}, 3000).then(function(){
 			console.log('Timer');
+			return 'bla';
 		});
 		
 		var lotsOfPeoplePromises = [
 			SwapiFactory.getPerson(1),
 			SwapiFactory.getPerson(2),
 			SwapiFactory.getPerson(3),
-			SwapiFactory.getPerson(4)
+			SwapiFactory.getPerson(4),
+			tp
 		];
 		
 		$q.all(lotsOfPeoplePromises).then(function(data){
