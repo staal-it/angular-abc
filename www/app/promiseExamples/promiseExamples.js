@@ -127,6 +127,9 @@
 		
 		PokemonFactory.getFullPokemon(1).then(function(data){
 			vm.data = data;
+			
+			vm.name = data.name;
+			vm.abilities = data.abilities;
 		});
 	});
 })();

@@ -1,3 +1,18 @@
 <h2>Promise!</h2>
 
+
+
+<h3>Name: {{ vm.data.name }}</h3>
+
+<table class="table">
+	<tr><td><h4>Species:</h4></td><td> {{ vm.data.species }}</td></tr>
+	<tr><td><h4>Weight:</h4></td><td> {{ vm.data.weight }}</td></tr>
+</table>
+<h3>Abilities:</h3>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="a in vm.abilities">{{ a.name }}</li>
+</ul>
+
+<br /><br /><br />
+
 <pre ng-bind="vm.data | json"></pre>
