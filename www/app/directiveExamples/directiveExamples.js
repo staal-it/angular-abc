@@ -17,14 +17,17 @@
 	.directive('abcNametag', function(){
 		return {
 			templateUrl: 'app/directiveExamples/abcnametag.html',
-			controller: function($scope){
-				$scope.toggleExpanded = function(){
-					$scope.expanded = !$scope.expanded;
-				}
-			},
 			scope: {
-				person: '=',
-				label: '@'
+				label: '@',
+				person: '='
+			},
+			controller: {
+				
+			},
+			link: function(scope, elem, attr){
+				scope.toggleExpanded = function(){
+					scope.expanded = !scope.expanded;
+				};
 			}
 		}
 	})
@@ -37,6 +40,10 @@
 				label: '@'
 			}
 		}
+	})
+	.controller('NameTagController', function(SwapiFactory){
+		var vm = this;
+
 	})
 	.controller('DirectiveController', function(SwapiFactory){
 		var vm = this;
