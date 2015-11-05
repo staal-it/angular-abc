@@ -10,7 +10,8 @@
 	})
 	.directive('coloredBlock', function(){
 		return {
-			templateUrl: 'app/directiveExamples/coloredblock.html'
+			templateUrl: 'app/directiveExamples/coloredblock.html',
+			transclude: true
 		}
 	});
 })();
