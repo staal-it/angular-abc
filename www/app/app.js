@@ -2,7 +2,7 @@
 	
 	'use strict';
 	
-	angular.module('sandbox', ['ngRoute'])
+	angular.module('sandbox', ['ngRoute', 'PromiseExamples'])
 	
 	.constant('API_CONFIG', {
 		API_URL: 'http://google.nl'
@@ -26,6 +26,21 @@
 		.when('/serviceExamples', {
 			templateUrl: 'app/serviceExamples/serviceExamples.html',
 			controller: 'ServiceExamplesController',
+			controllerAs: 'vm'
+		})
+		.when('/swapi', {
+			templateUrl: 'app/swapi/swapi.html',
+			controller: 'SwapiController',
+			controllerAs: 'vm'
+		})
+		.when('/promise', {
+			templateUrl: 'app/promiseExamples/promiseExamples.html',
+			controller: 'PromiseController',
+			controllerAs: 'vm'
+		})
+		.when('/swapi/:filmId', {
+			templateUrl: 'app/swapi/swapi-detail.html',
+			controller: 'SwapiDetailController',
 			controllerAs: 'vm'
 		})
 		.otherwise({
@@ -57,6 +72,22 @@
 			return $http.get('http://api.zippopotam.us/NL/' + postalCode).then(function (response){
 				return response.data;
 			})				
+		}
+	})
+	
+	.service('SwapiService', function ($http) {
+		var self = this;
+		
+		self.getFilms = function (){
+			return $http.get('http://swapi.co/api/films/').then(function (response){
+				return response.data.results;
+			})
+		}
+		
+		self.getFilmDetails = function (filmId){
+			return $http.get('http://swapi.co/api/films/' + filmId).then(function (response){
+				return response.data;
+			})
 		}
 	})
 	
@@ -117,6 +148,26 @@
 			});
 	})
 	
+	.controller ('SwapiController', function (SwapiService){
+		var vm = this;
+		
+		
+		SwapiService.getFilms().then(function(data){
+			console.log(data);
+			vm.films = data;
+		})
+	})
+	
+	.controller ('SwapiDetailController', function (SwapiService, $routeParams){
+		var vm = this;
+		
+		SwapiService.getFilmDetails($routeParams.filmId).then(function(data){
+			console.log(data);
+			vm.title = data.title;
+			vm.director = data.director;
+			vm.openingCrawl = data.opening_crawl;
+		})
+	})
 	.controller('WatchController', function($scope){
 		var vm = this;
 		

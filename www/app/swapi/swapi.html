@@ -1,0 +1,5 @@
+<p ng-show="vm.films === undefined">Loading...</p>
+
+<ul>
+	<li ng-repeat="film in vm.films" ><a href="#/swapi/{{ film.episode_id }}" >{{ film.title }}</a></li>
+</ul>
