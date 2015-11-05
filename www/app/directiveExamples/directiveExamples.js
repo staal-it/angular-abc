@@ -18,7 +18,8 @@
 		return {
 			templateUrl: 'app/directiveExamples/abcnametag.html',
 			scope: {
-				person: '='
+				person: '=',
+				label: '@'
 			}
 		}
 	})
