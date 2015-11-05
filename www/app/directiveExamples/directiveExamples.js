@@ -17,8 +17,23 @@
 	.directive('abcNametag', function(){
 		return {
 			templateUrl: 'app/directiveExamples/abcnametag.html',
+			controller: function($scope){
+				$scope.toggleExpanded = function(){
+					$scope.expanded = !$scope.expanded;
+				}
+			},
 			scope: {
 				person: '=',
+				label: '@'
+			}
+		}
+	})
+	.directive('abcCalc', function(){
+		return {
+			templateUrl: 'app/directiveExamples/abccalc.html',
+			scope: {
+				first: '=',
+				second: '=',
 				label: '@'
 			}
 		}

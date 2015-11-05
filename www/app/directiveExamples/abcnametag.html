@@ -1,5 +1,12 @@
 <div>
 	{{ label }} <br />
 	Name: {{ person.name }} <br />
-	Height {{ person.height }}
+	Height {{ person.height }}<br /><br />
+	
+	<button ng-click="toggleExpanded()">Expand</button>
+	<br /><br />
+	<div ng-show="expanded">
+		Hair color {{ person.hair_color }}<br />
+		Gender {{ person.gender }}
+	</div>
 </div>
