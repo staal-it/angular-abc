@@ -133,9 +133,9 @@
 		});
 		*/
 		
-		var defferd = $q.defer();
+		var deferred = $q.defer();
 		
-		var promise = defferd.promise;
+		var promise = deferred.promise;
 		
 		promise.then(function() {
 			console.log('Resolve');
@@ -146,15 +146,15 @@
 		});
 		
 		vm.resolveThePromise = function(){
-			defferd.resolve();
+			deferred.resolve();
 		}
 		
 		vm.rejectThePromise = function(){
-			defferd.reject();
+			deferred.reject();
 		}
 		
 		vm.notify = function(){
-			defferd.notify();
+			deferred.notify();
 		}
 		
 		/*
