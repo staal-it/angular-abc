@@ -131,7 +131,7 @@
 			vm.name = data.name;
 			vm.abilities = data.abilities;
 		});
-		
+		*/
 		
 		var defferd = $q.defer();
 		
@@ -146,22 +146,23 @@
 		});
 		
 		vm.resolveThePromise = function(){
-			promise.resolve();
+			defferd.resolve();
 		}
 		
 		vm.rejectThePromise = function(){
-			promise.reject();
+			defferd.reject();
 		}
 		
 		vm.notify = function(){
-			promise.notify();
+			defferd.notify();
 		}
-		*/
 		
+		/*
 		$interval().then(
 			function(){}, 
 			function(){}, 
 			function(){}
 			);
+			*/
 	});
 })();
