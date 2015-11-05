@@ -10,7 +10,7 @@
 		p.then(function(response){
 			return response.data;
 		}).then(function(response){
-			console.log(response.data);
+			console.log(response);
 		});
 	});
 })();
