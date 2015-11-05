@@ -123,7 +123,7 @@
 		$q.all(namedPromises).then(function(data){
 			console.log(data);
 		})
-		*/
+		
 		
 		PokemonFactory.getFullPokemon(1).then(function(data){
 			vm.data = data;
@@ -131,5 +131,25 @@
 			vm.name = data.name;
 			vm.abilities = data.abilities;
 		});
+		*/
+		
+		var defferd = $q.defer();
+		
+		var promise = defferd.promise;
+		
+		promise.then(function() {
+			console.log('Resolve');
+		}, function(){
+			console.log('Error');
+		});
+		
+		vm.resolveThePromise = function(){
+			promise.resolve();
+		}
+		
+		vm.rejectThePromise = function(){
+			promise.reject();
+		}
+		
 	});
 })();
