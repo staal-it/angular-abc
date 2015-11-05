@@ -10,14 +10,36 @@
 			});
 		}
 		
+		function getPlanet(uri){
+			return $http.get(uri).then(function(response){
+				return response.data;
+			});
+		}
+		
+		function getRichPerson(id){
+			var person;
+			return getPerson(id).then(function(data){
+				person = data;
+				
+				return getPlanet(data.homeworld);
+			})
+			.then(function(data){
+				person.homeworldData = data;
+				
+				return person;
+			});
+		}
+		
 		return {
-			getPerson: getPerson
+			getPerson: getPerson,
+			getPlanet: getPlanet,
+			getRichPerson: getRichPerson
 		};
 	})
 	
 	.controller('PromiseController', function($http, SwapiFactory){
 		var vm = this;
-		
+		/*
 		var p = SwapiFactory.getPerson(1);
 		
 		p.then(function(response){
@@ -25,9 +47,13 @@
 		});
 		
 		p.then(function(data){
-			return $http.get(data.homeworld);
-		}).then(function(response){
-			console.log(response.data);
+			return SwapiFactory.getPlanet(data.homeworld);
+		}).then(function(data){
+			console.log(data);
 		})
+		*/
+		SwapiFactory.getRichPerson(3).then(function(data){
+			console.log(data);
+		});
 	});
 })();
