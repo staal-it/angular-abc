@@ -64,6 +64,11 @@
 			return 'bla';
 		});
 		
+		var namedPromises = {
+			personOne: SwapiFactory.getPerson(1),
+			personTwo: SwapiFactory.getPerson(2)
+		}
+		
 		var lotsOfPeoplePromises = [
 			SwapiFactory.getPerson(1),
 			SwapiFactory.getPerson(2),
@@ -76,5 +81,9 @@
 			console.log(data);
 			vm.data = data;
 		});
+		
+		$q.all(namedPromises).then(function(data){
+			console.log(data);
+		})
 	});
 })();
