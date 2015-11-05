@@ -37,7 +37,7 @@
 		};
 	})
 	
-	.controller('PromiseController', function($http, SwapiFactory){
+	.controller('PromiseController', function($http, SwapiFactory, $q, $timeout){
 		var vm = this;
 		/*
 		var p = SwapiFactory.getPerson(1);
@@ -51,12 +51,28 @@
 		}).then(function(data){
 			console.log(data);
 		})
-		*/
+		
+		
 		SwapiFactory.getRichPerson(3).then(function(data){
 			console.log(data);
 			vm.data = data;
 		});
+		*/
 		
-		console.log('hier');
+		$timeout(function(){}, 3000).then(function(){
+			console.log('Timer');
+		});
+		
+		var lotsOfPeoplePromises = [
+			SwapiFactory.getPerson(1),
+			SwapiFactory.getPerson(2),
+			SwapiFactory.getPerson(3),
+			SwapiFactory.getPerson(4)
+		];
+		
+		$q.all(lotsOfPeoplePromises).then(function(data){
+			console.log(data);
+			vm.data = data;
+		});
 	});
 })();
