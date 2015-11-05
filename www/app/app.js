@@ -39,7 +39,9 @@
 			controllerAs: 'vm'
 		})
 		.when('/directive', {
-			templateUrl: 'app/directiveExamples/directiveExamples.html'
+			templateUrl: 'app/directiveExamples/directiveExamples.html',
+			controller: 'DirectiveController',
+			controllerAs: 'vm'
 		})
 		.when('/swapi/:filmId', {
 			templateUrl: 'app/swapi/swapi-detail.html',
