@@ -75,7 +75,7 @@
 		};
 	})
 	
-	.controller('PromiseController', function($http, SwapiFactory, $q, $timeout, PokemonFactory){
+	.controller('PromiseController', function($http, SwapiFactory, $q, $timeout, PokemonFactory, $interval){
 		var vm = this;
 		/*
 		var p = SwapiFactory.getPerson(1);
@@ -131,7 +131,7 @@
 			vm.name = data.name;
 			vm.abilities = data.abilities;
 		});
-		*/
+		
 		
 		var defferd = $q.defer();
 		
@@ -141,6 +141,8 @@
 			console.log('Resolve');
 		}, function(){
 			console.log('Error');
+		}, function(){
+			console.log('Notify');
 		});
 		
 		vm.resolveThePromise = function(){
@@ -151,5 +153,15 @@
 			promise.reject();
 		}
 		
+		vm.notify = function(){
+			promise.notify();
+		}
+		*/
+		
+		$interval().then(
+			function(){}, 
+			function(){}, 
+			function(){}
+			);
 	});
 })();
