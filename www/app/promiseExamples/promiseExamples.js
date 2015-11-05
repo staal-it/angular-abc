@@ -54,6 +54,9 @@
 		*/
 		SwapiFactory.getRichPerson(3).then(function(data){
 			console.log(data);
+			vm.data = data;
 		});
+		
+		console.log('hier');
 	});
 })();
