@@ -16,7 +16,10 @@
 	})
 	.directive('abcNametag', function(){
 		return {
-			templateUrl: 'app/directiveExamples/abcnametag.html'
+			templateUrl: 'app/directiveExamples/abcnametag.html',
+			scope: {
+				person: '='
+			}
 		}
 	})
 	.controller('DirectiveController', function(SwapiFactory){
