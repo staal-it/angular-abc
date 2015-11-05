@@ -2,7 +2,7 @@
 	
 	'use strict';
 	
-	angular.module('sandbox', ['ngRoute', 'PromiseExamples'])
+	angular.module('sandbox', ['ngRoute', 'PromiseExamples', 'DirectiveExamples'])
 	
 	.constant('API_CONFIG', {
 		API_URL: 'http://google.nl'
@@ -39,9 +39,7 @@
 			controllerAs: 'vm'
 		})
 		.when('/directive', {
-			templateUrl: 'app/directiveExamples/directiveExamples.html',
-			controller: 'DirectiveController',
-			controllerAs: 'vm'
+			templateUrl: 'app/directiveExamples/directiveExamples.html'
 		})
 		.when('/swapi/:filmId', {
 			templateUrl: 'app/swapi/swapi-detail.html',
