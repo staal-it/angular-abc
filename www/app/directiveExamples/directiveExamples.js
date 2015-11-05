@@ -3,9 +3,14 @@
 	
 	angular.module('DirectiveExamples', [])
 	
-	.directive('logo', function(){
+	.directive('abcLogo', function(){
 		return {
-			template: '<h1>Sandbox App</h1>'
+			templateUrl: 'app/directiveExamples/abclogo.html'
+		}
+	})
+	.directive('coloredBlock', function(){
+		return {
+			templateUrl: 'app/directiveExamples/coloredblock.html'
 		}
 	});
 })();
